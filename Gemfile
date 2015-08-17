@@ -5,6 +5,7 @@ gem "nokogiri"
 group "development" do
   gem "pry"
   gem "pry-nav"
+  gem "geocoder"
 end
 
 group "test" do
