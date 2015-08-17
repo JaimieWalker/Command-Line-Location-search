@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require_relative '../app/runners/googlemaps_cli.rb'
+
 Bundler.require(:default, :development)
 $: << '.'
 
@@ -10,3 +11,4 @@ Dir["app/runners/*.rb"].each {|f| require f}
 
 require "open-uri"
 require "json"
+require "rest-client"
