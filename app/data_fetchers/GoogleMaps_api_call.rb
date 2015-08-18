@@ -12,14 +12,20 @@ class GoogleMapsApi
   end
 
 
-  # def find_stores
-  #   stores = []
-  #   all_stores = @location_data["location"]
-  #   all_stores.each do |store|
-  #     song_url = song["track_url"]
-  #     songs << ExampleModel.new(song_url)
-  #   end
-  #   songs
-  # end
+  def return_location
+    address = []
+    count = 0
+    @location_data["results"].each do |data|
+      data.each do |key, value|
+        if key == "formatted_address"
+          count += 1
+          address << value
+        end
 
+        if count == 4
+          return address
+        end
+      end
+    end
+  end
 end

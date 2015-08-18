@@ -27,26 +27,23 @@ class GooglemapsCLI
   end
 
   def search(input)
-    #grab the ip and convert it to a location 
     search_term = input.gsub(" ",'+')
 
     puts "Your search term was #{search_term}, I am searching..."
     #If needed, subsitute spaces for + signs, idk how url's work
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
-    GoogleMapsApi.new(url)
+    spot_address = GoogleMapsApi.new(url)
+    adresses = spot_address.return_location 
     
-    #We instantiate the GoogleMapsApi class and stuff here.
-
-
-
-    # tweet = ExampleScraper.new(url).example_method.sample
-    # puts "Thank you for your patience. I found this on Twitter:"
-    # puts tweet.example
+    puts "Here are your top 4 results:"
+    adresses.each do |data|
+      puts data
+    end
   end
 
   def help
     puts "Type 'exit' to exit"
-    puts "Input destination name, restaurant name, shopping area, or area."
+    puts "Input place name with location. For ex: macys in new york"
   end
 
 end
