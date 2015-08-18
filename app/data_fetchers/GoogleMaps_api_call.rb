@@ -8,16 +8,18 @@ class GoogleMapsApi
   def initialize(url)
     @url = url
     @location_data = JSON.load(open(url))
+    binding.pry
   end
 
-  def find_stores
-    songs = []
-    all_songs = music_data["tracks"]
-    all_songs.each do |song|
-      song_url = song["track_url"]
-      songs << ExampleModel.new(song_url)
-    end
-    songs
-  end
+
+  # def find_stores
+  #   stores = []
+  #   all_stores = @location_data["location"]
+  #   all_stores.each do |store|
+  #     song_url = song["track_url"]
+  #     songs << ExampleModel.new(song_url)
+  #   end
+  #   songs
+  # end
 
 end

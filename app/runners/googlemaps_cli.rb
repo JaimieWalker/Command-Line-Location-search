@@ -23,9 +23,17 @@ class GooglemapsCLI
   end
 
   def search(input)
-    search_term = input.split(" ")[0]
+    #grab the ip and convert it to a location 
+    search_term = input.gsub(" ",'+')
+
     puts "Your search term was #{search_term}, I am searching..."
-    url = "https://maps.googleapis.com/maps/api/place/search/json?location=-33.88471,151.218237&types=#{search_term}&radius=100&sensor=true&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
+    #If needed, subsitute spaces for + signs, idk how url's work
+    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
+    GoogleMapsApi.new(url)
+    #We instantiate the GoogleMapsApi class and stuff here.
+
+
+
     # tweet = ExampleScraper.new(url).example_method.sample
     # puts "Thank you for your patience. I found this on Twitter:"
     # puts tweet.example
