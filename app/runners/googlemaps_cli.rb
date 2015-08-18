@@ -1,3 +1,7 @@
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 class GooglemapsCLI
 
   def call
@@ -30,6 +34,7 @@ class GooglemapsCLI
     #If needed, subsitute spaces for + signs, idk how url's work
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
     GoogleMapsApi.new(url)
+    
     #We instantiate the GoogleMapsApi class and stuff here.
 
 

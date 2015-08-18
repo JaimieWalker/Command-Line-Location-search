@@ -7,8 +7,8 @@ class GoogleMapsApi
   
   def initialize(url)
     @url = url
-    @location_data = JSON.load(open(url))
-    binding.pry
+    @location_data = JSON.load(open(url,{OpenSSL::SSL::VERIFY_PEER => OpenSSL::SSL::VERIFY_NONE}))
+    # binding.pry
   end
 
 
