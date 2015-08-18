@@ -33,12 +33,14 @@ class GooglemapsCLI
     #If needed, subsitute spaces for + signs, idk how url's work
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
     spot_address = GoogleMapsApi.new(url)
-    adresses = spot_address.return_location 
+    addresses = spot_address.return_location 
     
     puts "Here are your top 4 results:"
-    adresses.each do |data|
+    addresses.each do |data|
       puts data
     end
+
+    #call pick a num method. and call open on this method.
   end
 
   def help
