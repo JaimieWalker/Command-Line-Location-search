@@ -39,7 +39,7 @@ class GooglemapsCLI
     addresses.each do |data|
       puts data
     end
-
+      spot_address.pick_a_num
     #call pick a num method. and call open on this method.
   end
 
@@ -47,6 +47,8 @@ class GooglemapsCLI
     puts "Type 'exit' to exit"
     puts "Input place name with location. For ex: macys in new york"
   end
+
+
 
 end
 
