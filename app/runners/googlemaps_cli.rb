@@ -27,19 +27,21 @@ class GooglemapsCLI
   end
 
   def search(input)
+    system 'clear'
     search_term = input.gsub(" ",'+')
 
     puts "Your search term was #{search_term}, I am searching..."
     #If needed, subsitute spaces for + signs, idk how url's work
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
     spot_address = GoogleMapsApi.new(url)
-    addresses = spot_address.return_location 
+    new_stuff = GoogleMapsModel.new(spot_address.location_data)
+    addresses = new_stuff.return_location 
     
     puts "Here are your top 4 results:"
     addresses.each do |data|
       puts data
     end
-      spot_address.pick_a_num
+      new_stuff.pick_a_num
     #call pick a num method. and call open on this method.
   end
 

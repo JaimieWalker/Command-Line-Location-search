@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require_relative '../app/runners/googlemaps_cli.rb'
+require_relative '../app/models/googlemaps_model.rb'
 
 Bundler.require(:default, :development)
 $: << '.'
