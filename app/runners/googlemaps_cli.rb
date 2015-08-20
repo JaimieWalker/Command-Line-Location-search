@@ -5,6 +5,7 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 class GooglemapsCLI
 
   def call
+    system 'clear'
     puts "Please enter a destination. Ex: restaurant name or clothing store"
     run
   end
@@ -27,7 +28,7 @@ class GooglemapsCLI
   end
 
   def search(input)
-    system 'clear'
+  system 'clear'
     search_term = input.gsub(" ",'+')
 
     puts "Your search term was #{search_term}, I am searching..."
