@@ -1,6 +1,6 @@
 class GoogleMapsModel
 
-  attr_reader :location_data
+  # attr_reader :location_data
   
   def initialize(location_data)
     @location_data = location_data
@@ -23,7 +23,7 @@ class GoogleMapsModel
         if count == 4
           # binding.pry
          return @address
-        end
+        end 
       end
     end
   end
