@@ -40,7 +40,7 @@ class GooglemapsCLI
 
     puts "Your search term was #{search_term}, I am searching..."
     #If needed, subsitute spaces for + signs, idk how url's work
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=1600&keyword=#{search_term}&key=<InsertKey>" #in progress
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=1600&keyword=#{search_term}&key=AIzaSyA2D6EI1AHQ4DuO9gG2A55WtFN38BESLb4" #in progress
     # binding.pry
     spot_address = GoogleMapsApi.new(url)
     new_stuff = GoogleMapsModel.new(spot_address.location_data)
