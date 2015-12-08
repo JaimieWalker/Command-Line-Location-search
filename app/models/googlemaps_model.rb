@@ -11,16 +11,17 @@ class GoogleMapsModel
     @address = []
     count = 0
     @location_data["results"].each_with_index do |data, index|
+      # binding.pry
       data.each do |key, value|
-        if key == "formatted_address"
+        if key == "vicinity"
           count += 1
           lat = data["geometry"]["location"]["lat"]
           lng = data["geometry"]["location"]["lng"]
           @google_url << "https://www.google.com/maps/search/#{lat},#{lng}"
-          @address << "#{index + 1}. #{value}"
+          @address << "#{index + 1}. #{data["name"]}: #{value}"
         end
 
-        if count == 4
+        if count == 7
           # binding.pry
          return @address
         end 
@@ -29,7 +30,8 @@ class GoogleMapsModel
   end
 
   def pick_a_num
-    puts "What location would you like to view?"
+
+    puts "\nWhat location would you like to view?"
     index = gets.chomp
   
 
@@ -44,6 +46,12 @@ class GoogleMapsModel
         `open #{@google_url[2]}`
       when "4"
         `open #{@google_url[3]}`
+      when "5"
+        `open #{@google_url[4]}`
+      when "6"
+        `open #{@google_url[5]}`
+      when "7"
+        `open #{@google_url[6]}`
       else
         puts "Invalid number, search again"
     end
